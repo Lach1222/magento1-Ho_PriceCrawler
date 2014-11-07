@@ -6,15 +6,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Logs_Grid extends Mage_Adminhtml_Block_Wid
     {
         parent::__construct();
 
-        $defaultFilter = array('is_item' => 0);
-
-        $jobId = base64_decode($this->getRequest()->getParam('job_id'));
-        if ($jobId) {
-            $defaultFilter['job_id'] = $jobId;
-        }
-
         $this->setDefaultSort('job_id');
-        $this->setDefaultFilter($defaultFilter);
         $this->setId('ho_pricecrawler_logs_grid');
         $this->setDefaultDir('desc');
         $this->setSaveParametersInSession(true);

@@ -42,7 +42,7 @@
                 <td>
                     <?php if ($this->getName() == 'finished_jobs'): ?>
                         <?php if ($this->showLogUrl($job->id)): ?>
-                        <a href="<?=Mage::getURl('ho_pricecrawler/adminhtml_logs', array('job_id' => base64_encode($job->id)));?>"
+                        <a href="<?=$this->getLogsGridUrl($job->id);?>"
                            data-tooltip="<?=$this->__('Show logs of this job');?>" class="job-icon job-logs tooltip tooltip-nowrap">
                             <?=$this->__('Show logs of this job');?>
                         </a>

@@ -17,6 +17,31 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
     }
 
     /**
+     * Get URL with filter params (job ID set, and is_item set to 'No')
+     *
+     * @param int $jobId
+     * @return string
+     */
+    public function getLogsGridUrl($jobId)
+    {
+        $filters = array(
+            'job_id'    => $jobId,
+            'is_item'   => 0,
+        );
+
+        $filter = '';
+        $i = 0;
+        foreach ($filters as $key => $value) {
+            $filter .= ($i > 0 ? '&' : '') . $key . '=' . $value;
+            $i++;
+        }
+
+        $url = Mage::helper('adminhtml')->getUrl('ho_pricecrawler/adminhtml_logs', array('filter' => base64_encode($filter)));
+
+        return $url;
+    }
+
+    /**
      * Retrieve Scrapinghub job URL
      *
      * @param string $jobId
