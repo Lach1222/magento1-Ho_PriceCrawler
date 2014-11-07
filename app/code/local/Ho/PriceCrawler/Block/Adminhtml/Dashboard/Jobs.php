@@ -36,7 +36,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
             $i++;
         }
 
-        $url = Mage::helper('adminhtml')->getUrl('ho_pricecrawler/adminhtml_logs', array('filter' => base64_encode($filter)));
+        $url = Mage::helper('adminhtml')->getUrl('ho_pricecrawler/adminhtml_logs', array('limit' => 200, 'filter' => base64_encode($filter)));
 
         return $url;
     }
