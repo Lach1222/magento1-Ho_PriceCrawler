@@ -49,7 +49,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
      */
     public function getJobUrl($jobId)
     {
-        return Mage::helper('ho_pricecrawler')->getScrapinghubJobUrl($jobId);
+        return Mage::helper('ho_pricecrawler/scrapinghub')->getJobUrl($jobId);
     }
 
     /**

@@ -40,23 +40,4 @@ class Ho_PriceCrawler_Helper_Data extends Mage_Core_Helper_Abstract
             $interval->s . 's';
     }
 
-    /**
-     * Retrieve Scrapinghub URL by given job id (<project>/<spider>/<jobID>).
-     *
-     * For example, when giving argument '1234/56/7':
-     * https://dash.scrapinghub.com/p/1234/job/56/7/
-     *
-     * @param string $jobId
-     * @return string
-     */
-    public function getScrapinghubJobUrl($jobId)
-    {
-        $job = explode('/', $jobId);
-        list($project, $spider, $jobId) = $job;
-
-        $url = sprintf('https://dash.scrapinghub.com/p/%s/job/%s/%s/', $project, $spider, $jobId);
-
-        return $url;
-    }
-
 }

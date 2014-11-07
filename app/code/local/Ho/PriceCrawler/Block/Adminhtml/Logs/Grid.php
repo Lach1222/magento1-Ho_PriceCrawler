@@ -89,6 +89,14 @@ class Ho_PriceCrawler_Block_Adminhtml_Logs_Grid extends Mage_Adminhtml_Block_Wid
             'renderer'  => 'Ho_PriceCrawler_Block_Adminhtml_Logs_Renderer_Url',
         ));
 
+        $this->addColumn('request_url', array(
+            'header'    => $helper->__(''),
+            'renderer'  => 'Ho_PriceCrawler_Block_Adminhtml_Logs_Renderer_SearchUrl',
+            'width'     => '100px',
+            'filter'    => false,
+            'sortable'  => false,
+        ));
+
         $this->addColumn('is_item', array(
             'header'    => $helper->__('Has Item'),
             'width'     => '50px',
