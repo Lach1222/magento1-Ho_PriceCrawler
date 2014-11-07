@@ -82,9 +82,13 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
                 ->distinct()
                 ->columns('job_id');
 
-            $result = array_keys($connection->fetchPairs($sql));
+            $result = $connection->fetchAll($sql);
 
-            $this->_loggedJobIds = $result;
+            foreach ($result as $job) {
+                $jobs[] = $job['job_id'];
+            }
+
+            $this->_loggedJobIds = $jobs;
         }
 
         return $this->_loggedJobIds;
