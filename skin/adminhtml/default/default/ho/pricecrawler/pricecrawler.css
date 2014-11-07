@@ -21,13 +21,13 @@
 #search-error span { display: block; padding: 5px 10px; margin-top: 3px; border: 1px solid red; background: #fdd; }
 
 .job-icon { display: block; float: left; width: 14px; height: 14px; margin-right: 5px; text-indent: -9999px; background-repeat: no-repeat; }
-.job-delete { background-image: url(../images/dashboard-close.gif); }
-.job-stop { background-image: url(../images/cancel_icon.gif); }
-.job-logs { background-image: url(../images/btn_go.gif); }
+.job-delete { background-image: url(../../images/dashboard-close.gif); }
+.job-stop { background-image: url(../../images/cancel_icon.gif); }
+.job-logs { background-image: url(../../images/btn_go.gif); }
 
-.entry-actions .entry-edit-head { background-image: url(../images/btn_bg.gif); }
+.entry-actions .entry-edit-head { background-image: url(../../images/btn_bg.gif); }
 
-#ho_pricecrawler_logs_grid .log-url { padding-right: 16px; background: url(../images/btn_go.gif) right center no-repeat; }
+#ho_pricecrawler_logs_grid .log-url { padding-right: 16px; background: url(../../images/btn_go.gif) right center no-repeat; }
 #ho_pricecrawler_logs_grid td { position: relative; }
 #ho_pricecrawler_logs_grid .tooltip { position: absolute; top: 20px; right: 0; padding: 2px 6px; background: #fff; border: 1px solid #ea7601; z-index: 999; }
 #ho_pricecrawler_logs_grid .tooltip.no-wrap { white-space: nowrap; }
