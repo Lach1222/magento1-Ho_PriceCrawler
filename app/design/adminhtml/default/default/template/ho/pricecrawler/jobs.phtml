@@ -42,8 +42,8 @@
                 <td>
                     <?php if ($this->getName() == 'finished_jobs'): ?>
                     <a href="<?=Mage::getURl('ho_pricecrawler/adminhtml_logs', array('job_id' => base64_encode($job->id)));?>"
-                       title="<?=$this->__('Show Logs');?>" class="job-icon job-logs">
-                        <?=$this->__('Show Logs');?>
+                       title="<?=$this->__('Show logs of this job');?>" class="job-icon job-logs">
+                        <?=$this->__('Show logs of this job');?>
                     </a>
                     <?php endif; ?>
                 </td>

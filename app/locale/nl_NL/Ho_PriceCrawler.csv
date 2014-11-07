@@ -1,8 +1,10 @@
+# GENERAL
 "Dashboard","Dashboard"
 "Products","Producten"
 "Sites","Sites"
 "Configuration","Configuratie"
 
+# SITES
 "PriceCrawler Sites","PriceCrawler Sites"
 "Site name","Site naam"
 "Scrapinhub identifier","Scrapinghub identifier"
@@ -19,6 +21,7 @@
 "Show Category","Categorie weergeven"
 "Show the product category after the product name in the 'Product Match' list","Categorie weergeven achter de productnaam in de Product Match lijst"
 
+# PRODUCTS
 "PriceCrawler Products","PriceCrawler Producten"
 "Edit Product","Product wijzigen"
 "Productname","Productnaam"
@@ -69,6 +72,18 @@
 "An error occurred while saving these product matches.","Er ging iets mis bij het opslaan van de product koppelingen."
 "Created via PriceCrawler in Magento","Aangemaakt via de PriceCrawler in Magento"
 
+# LOGS
+"PriceCrawler Logs","PriceCrawler Logs"
+"Site","Site"
+"Job ID","Job ID"
+"Imported At","Ge&iuml;mporteerd op"
+"Logged At","Gelogd op"
+"Message","Log bericht"
+"URL","URL"
+"Has Item","Bevat Item"
+"Show logs of this job","Bekijk logs van deze job"
+
+# JOBS
 "Pending jobs","Jobs in wachtrij"
 "Running jobs","Actieve jobs"
 "Finished jobs (last %s)","Afgeronde jobs (laatste %s)"
@@ -104,6 +119,7 @@
 "Are you sure you want to stop job %s?","Weet je zeker dat je job %s wilt stoppen?"
 "Are you sure you want to delete job %s?","Weet je zeker dat je job %s wilt verwijderen?"
 
+# CONFIGURATION
 "Scrapinghub Settings","Scrapinghub instellingen"
 "API URL","API URL"
 "Default: https://dash.scrapinghub.com/api/","Standaard: https://dash.scrapinghub.com/api/"
@@ -122,6 +138,9 @@
 "Items Settings","Items instellingen"
 "Import items cron","Items importeren cron"
 "Default value: <code>0 1 * * *</code> for daily at 1 AM","Standaard waarde: <code>0 1 * * *</code> voor dagelijks om 01:00 uur"
+"Logs Settings","Logs Instellingen"
+"Import logs cron","Logs importeren cron"
+"Default value: <code>0 2 * * *</code> for daily at 2 AM","Standaard waarde: <code>0 2 * * *</code> voor dagelijks om 02:00 uur"
 "Products Overview","Product overzicht"
 "Notice price difference percentage","Prijs verschil percentage"
 "Negative price differences are shown in red above this percentage difference","Negatieve prijsverschillen worden rood weergegeven als ze boven dit percentage komen"
