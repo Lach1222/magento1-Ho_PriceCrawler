@@ -6,6 +6,7 @@
         </reference>
         <reference name="head">
             <action method="addCss"><stylesheet>ho/pricecrawler/pricecrawler.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>ho/pricecrawler/jquery-1.11.1.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>ho/pricecrawler/pricecrawler.js</name><params/></action>
         </reference>
     </ho_pricecrawler_init>
