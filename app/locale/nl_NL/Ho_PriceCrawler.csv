@@ -82,6 +82,8 @@
 "URL","URL"
 "Has Item","Bevat Item"
 "Show logs of this job","Bekijk logs van deze job"
+"With these logs, you can easily check which requests had no item scraped. Select a Job ID and set 'Has Item' to 'No', to show all the requests without items.","Met behulp van deze logs kunt u gemakkelijk controleren welke requests geen item hebben gescraped. Selecteer een Job ID en zet 'Bevat Item' op 'Nee' om alle requests zonder items weer te geven."
+"Copy the URL of the request and look it up in the 'Requests' tab of the job in Scrapinghub to add a template, or add (a part of) the URL to the Exclude Patterns.","Kopieer de URL van de request en zoek deze op onder de 'Requests' tab van de job in Scrapinghub om een template toe te voegen, of voeg (een deel van) de URL toe aan de Exclude Patterns."
 
 # JOBS
 "Pending jobs","Jobs in wachtrij"

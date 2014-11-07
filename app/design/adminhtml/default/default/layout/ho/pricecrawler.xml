@@ -44,7 +44,7 @@
     <ho_pricecrawler_adminhtml_logs_index>
         <update handle="ho_pricecrawler_init" />
         <reference name="content">
-            <block type="ho_pricecrawler/adminhtml_logs" name="ho_pricecrawler_logs" />
+            <block type="ho_pricecrawler/adminhtml_logs" name="ho_pricecrawler_logs"/>
         </reference>
     </ho_pricecrawler_adminhtml_logs_index>
 </layout>
