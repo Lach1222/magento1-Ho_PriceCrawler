@@ -5,8 +5,8 @@
             <action method="addBodyClass"><classname>ho-pricecrawler</classname></action>
         </reference>
         <reference name="head">
-            <action method="addCss"><stylesheet>ho/pricecrawler.css</stylesheet></action>
-            <action method="addItem"><type>skin_js</type><name>ho/pricecrawler.js</name><params/></action>
+            <action method="addCss"><stylesheet>ho/pricecrawler/pricecrawler.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>ho/pricecrawler/pricecrawler.js</name><params/></action>
         </reference>
     </ho_pricecrawler_init>
 
