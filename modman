@@ -1,0 +1,7 @@
+# Ho_PriceCrawler
+app/code/local/Ho/PriceCrawler/                         app/code/local/Ho/PriceCrawler/
+app/locale/nl_NL/*                                      app/locale/nl_NL/
+app/etc/modules/*                                       app/etc/modules/
+app/design/adminhtml/default/default/layout/ho/*        app/design/adminhtml/default/default/layout/ho/
+app/design/adminhtml/default/default/template/ho/*      app/design/adminhtml/default/default/template/ho/
+skin/adminhtml/default/default/ho/pricecrawler/         skin/adminhtml/default/default/ho/pricecrawler/
