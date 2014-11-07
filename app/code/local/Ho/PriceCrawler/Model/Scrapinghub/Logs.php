@@ -167,5 +167,4 @@ class Ho_PriceCrawler_Model_Scrapinghub_Logs extends Ho_PriceCrawler_Model_Scrap
         return strpos($logLine->message, 'Scraped from') === 0;
     }
 
-    // todo: clean old logs
 }

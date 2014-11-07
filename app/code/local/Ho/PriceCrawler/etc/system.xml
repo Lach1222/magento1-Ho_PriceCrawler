@@ -106,6 +106,22 @@
                             <show_in_default>1</show_in_default>
                             <comment><![CDATA[Default value: <code>0 2 * * *</code> for daily at 2 AM]]></comment>
                         </import_cron>
+                        <clean_cron translate="label comment" module="ho_pricecrawler">
+                            <label>Clean logs cron</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[Default value: <code>0 3 * * *</code> for daily at 3 AM]]></comment>
+                        </clean_cron>
+                        <clean_days translate="label comment" module="ho_pricecrawler">
+                            <label>Log days</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <comment><![CDATA[Logs older than this number of days will be cleaned. Default value: 10]]></comment>
+                        </clean_days>
                     </fields>
                 </logs>
                 <products_overview translate="label" module="ho_pricecrawler">

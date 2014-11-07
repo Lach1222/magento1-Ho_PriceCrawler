@@ -103,6 +103,10 @@
                 <schedule><config_path>ho_pricecrawler/logs/import_cron</config_path></schedule>
                 <run><model>ho_pricecrawler/observer::importLogs</model></run>
             </ho_pricecrawler_import_logs>
+            <ho_pricecrawler_clean_logs>
+                <schedule><config_path>ho_pricecrawler/logs/clean_cron</config_path></schedule>
+                <run><model>ho_pricecrawler/observer::cleanLogs</model></run>
+            </ho_pricecrawler_clean_logs>
         </jobs>
     </crontab>
 
@@ -123,6 +127,8 @@
             </items>
             <logs>
                 <import_cron>0 2 * * *</import_cron>
+                <clean_cron>0 3 * * *</clean_cron>
+                <clean_days>10</clean_days>
             </logs>
             <products_overview>
                 <notice_price_difference_percentage>10</notice_price_difference_percentage>

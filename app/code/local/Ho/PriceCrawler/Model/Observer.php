@@ -2,6 +2,8 @@
 
 class Ho_PriceCrawler_Model_Observer
 {
+    const XML_PATH_LOGS_CLEAN_DAYS = 'ho_pricecrawler/logs/clean_days';
+
     /**
      * Tries to schedule all active spiders
      *
@@ -28,7 +30,7 @@ class Ho_PriceCrawler_Model_Observer
     /**
      * Import all items from the last finished job from all active spiders
      *
-     * @param $observer
+     * @param Varien_Event_Observer $observer
      * @return string
      */
     public function importItems($observer)
@@ -47,7 +49,7 @@ class Ho_PriceCrawler_Model_Observer
     }
 
     /**
-     * @param $observer
+     * @param Varien_Event_Observer $observer
      * @return array
      */
     public function importLogs($observer)
@@ -57,6 +59,25 @@ class Ho_PriceCrawler_Model_Observer
         $result = $model->import();
 
         return implode("\n", $result);
+    }
+
+    /**
+     * @param Varien_Event_Observer $observer
+     * @return string
+     */
+    public function cleanLogs($observer)
+    {
+        $days = Mage::getStoreConfig(self::XML_PATH_LOGS_CLEAN_DAYS);
+
+        $resource = Mage::getModel('core/resource');
+        $connection = $resource->getConnection('core_write');
+
+        $date = date('Y-m-d H:i:s', strtotime('-' . $days . ' days'));
+
+        $where = $connection->quoteInto('date < ?', $date);
+        $connection->delete($resource->getTableName('ho_pricecrawler/logs'), $where);
+
+        return Mage::helper('ho_pricecrawler')->__('Logs older than %s successfully cleaned', $date);
     }
 
     /**
