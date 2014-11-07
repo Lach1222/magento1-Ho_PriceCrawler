@@ -34,3 +34,5 @@
 .ho-pricecrawler td { position: relative; }
 .ho-pricecrawler .tooltip-data { position: absolute; top: 20px; right: 0; padding: 2px 6px; background: #fff; border: 1px solid #ea7601; z-index: 999; }
 .ho-pricecrawler .tooltip-data.no-wrap { white-space: nowrap; }
+
+.ho-pricecrawler-adminhtml-logs-index .messages li { margin-bottom: 4px !important; line-height: 13px !important; min-height: 0 !important; }
