@@ -119,6 +119,7 @@
 "Are you sure you want to stop job %s?","Weet je zeker dat je job %s wilt stoppen?"
 "Are you sure you want to delete job %s?","Weet je zeker dat je job %s wilt verwijderen?"
 "Open job in Scrapinghub","Job openen in Scrapinghub"
+"There are no logs of this job imported (yet)","Er zijn (nog) geen logs ge&iuml;mporteerd voor deze job"
 
 # CONFIGURATION
 "Scrapinghub Settings","Scrapinghub instellingen"

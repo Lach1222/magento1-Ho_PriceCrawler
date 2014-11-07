@@ -119,6 +119,7 @@
 "Are you sure you want to stop job %s?","Are you sure you want to stop job %s?"
 "Are you sure you want to delete job %s?","Are you sure you want to delete job %s?"
 "Open job in Scrapinghub","Open job in Scrapinghub"
+"There are no logs of this job imported (yet)","There are no logs of this job imported (yet)"
 
 # CONFIGURATION
 "Scrapinghub Settings","Scrapinghub Settings"

@@ -9,7 +9,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Logs_Renderer_Message extends Mage_Adminht
 
         $limit = 50;
 
-        return '<span class="log-message" data-content="' . htmlspecialchars($value) . '"> ' . substr($value, 0, $limit)
+        return '<span class="log-message tooltip" data-tooltip="' . htmlspecialchars($value) . '"> ' . substr($value, 0, $limit)
             . (strlen($value) > $limit ? '...' : '')
             . '</span>';
     }

@@ -41,20 +41,27 @@
                 <td align="right"><?=$helper->getElapsedJobTime($job);?></td>
                 <td>
                     <?php if ($this->getName() == 'finished_jobs'): ?>
-                    <a href="<?=Mage::getURl('ho_pricecrawler/adminhtml_logs', array('job_id' => base64_encode($job->id)));?>"
-                       title="<?=$this->__('Show logs of this job');?>" class="job-icon job-logs">
-                        <?=$this->__('Show logs of this job');?>
-                    </a>
+                        <?php if ($this->showLogUrl($job->id)): ?>
+                        <a href="<?=Mage::getURl('ho_pricecrawler/adminhtml_logs', array('job_id' => base64_encode($job->id)));?>"
+                           data-tooltip="<?=$this->__('Show logs of this job');?>" class="job-icon job-logs tooltip tooltip-nowrap">
+                            <?=$this->__('Show logs of this job');?>
+                        </a>
+                        <?php else: ?>
+                        <span class="job-icon job-no-logs tooltip tooltip-nowrap"
+                              data-tooltip="<?=$this->__('There are no logs of this job imported (yet)');?>"></span>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </td>
                 <td class="last">
                     <?php if ($this->getName() == 'running_jobs'): ?>
                     <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/stopjob', array('id' => base64_encode($job->id)));?>"
-                       title="<?=$this->__('Stop job');?>" class="job-icon job-stop" onClick="return confirm('<?=$this->__('Are you sure you want to stop job %s?', $job->id); ?>')">
+                       data-tooltip="<?=$this->__('Stop job');?>" class="job-icon job-stop tooltip tooltip-nowrap"
+                       onClick="return confirm('<?=$this->__('Are you sure you want to stop job %s?', $job->id); ?>')">
                         <?=$this->__('Stop job');?></a>
                     <?php elseif ($this->getName() == 'finished_jobs'): ?>
                     <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/deletejob', array('id' => base64_encode($job->id)));?>"
-                       title="<?=$this->__('Delete job');?>" class="job-icon job-delete" onClick="return confirm('<?=$this->__('Are you sure you want to delete job %s?', $job->id); ?>')">
+                       data-tooltip="<?=$this->__('Delete job');?>" class="job-icon job-delete tooltip tooltip-nowrap"
+                       onClick="return confirm('<?=$this->__('Are you sure you want to delete job %s?', $job->id); ?>')">
                         <?=$this->__('Delete job');?></a>
                     <?php endif; ?>
                 </td>

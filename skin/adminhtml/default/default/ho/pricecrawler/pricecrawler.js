@@ -1,12 +1,13 @@
 jQuery(document).ready(function() {
-    // Show tooltip when hovering URL of message in logs grid
-    jQuery('.log-url, .log-message').hover(function() {
+    // Show tooltip
+    jQuery('.tooltip').hover(function() {
         var el = jQuery(this);
-        var isMessage = el.hasClass('log-message');
-        var $url = el.attr(isMessage ? 'data-content' : 'href');
+        var $url = el.attr('data-tooltip');
 
-        if (el.parent().find('.tooltip').length <= 0) {
-            el.parent().append('<span class="tooltip ' + (isMessage ? '' : 'no-wrap') + '" style="display:none;">' + $url + '</span>');
+        var noWrap = el.hasClass('tooltip-nowrap');
+
+        if (el.parent().find('.tooltip-data').length <= 0) {
+            el.parent().append('<span class="tooltip-data ' + (noWrap ? 'no-wrap' : '') + '" style="display:none;">' + $url + '</span>');
         }
 
         var tooltip = el.next();
