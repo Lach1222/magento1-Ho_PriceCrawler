@@ -20,6 +20,8 @@
 
 #search-error span { display: block; padding: 5px 10px; margin-top: 3px; border: 1px solid red; background: #fdd; }
 
+#jobs_table a.job-url { padding-right: 16px; background: url(../../images/btn_go.gif) right center no-repeat; }
+#jobs_table a.job-url:hover { color: #e41101; }
 .job-icon { display: block; float: left; width: 14px; height: 14px; margin-right: 5px; text-indent: -9999px; background-repeat: no-repeat; }
 .job-delete { background-image: url(../../images/dashboard-close.gif); }
 .job-stop { background-image: url(../../images/cancel_icon.gif); }

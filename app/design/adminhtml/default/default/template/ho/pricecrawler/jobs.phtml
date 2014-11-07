@@ -31,7 +31,7 @@
     <?php if (count($jobs)): ?>
         <?php foreach ($jobs as $job): ?>
             <tr>
-                <td><?=$job->id;?></td>
+                <td><a href="<?=$this->getJobUrl($job->id);?>" class="job-url" target="_blank" title="<?=$this->__('Open job in Scrapinghub');?>"><?=$job->id;?></a></td>
                 <td><?=$job->spider;?></td>
                 <td><?=$job->items_scraped;?></td>
                 <td><?=$job->responses_received;?></td>
