@@ -1,0 +1,34 @@
+<div class="dashboard-container">
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td>
+                <div class="entry-edit entry-actions">
+                    <div class="entry-edit-head"><h4><?=$this->__('Schedule spider jobs');?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('schedule_jobs');?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Pending jobs') ?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('pending_jobs'); ?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Running jobs') ?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('running_jobs'); ?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Finished jobs (last %s)', Mage::helper('ho_pricecrawler')->getFinishedJobLimit()) ?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('finished_jobs'); ?></fieldset>
+                </div>
+            </td>
+            <td>
+                <div class="entry-edit entry-actions">
+                    <div class="entry-edit-head"><h4><?=$this->__('Schedule spider imports');?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('schedule_imports');?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Import log (last %s)', Mage::helper('ho_pricecrawler')->getImportLogLimit()); ?></h4></div>
+                    <fieldset class="grid np"><?php echo $this->getChildHtml('import_log'); ?></fieldset>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

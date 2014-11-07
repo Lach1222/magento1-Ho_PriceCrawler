@@ -1,0 +1,43 @@
+<?php /** @var Ho_PriceCrawler_Block_Adminhtml_Products_Edit_ProductInfo $this */ ?>
+<div class="product-info
+    <?=$this->getClass() ? ' ' . $this->getClass() : '';?>"
+    <?=$this->getId() ? ' id="' . $this->getId() . '"' : '';?>>
+    <div class="match-head"><?=$this->getHeader() ? $this->getHeader() : $this->__('Product information:'); ?></div>
+
+    <table>
+        <tr>
+            <td>
+                <table class="info">
+                    <colgroup>
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <tr>
+                        <td class="label"><?=$this->__('Product name:'); ?></td>
+                        <td><?php if ($this->getProductUrl()): ?>
+                                <a class="product-url" href="<?=$this->getProductUrl();?>" target="_blank">
+                            <?php endif; ?>
+                                <?=$this->getName(); ?>
+                            <?php if ($this->getProductUrl()): ?></a><?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?=$this->__('Product SKU:'); ?></td>
+                        <td><?=$this->getSku(); ?></td>
+                    </tr>
+                    <tr>
+                        <td class="label"><?=$this->__('Product price:'); ?></td>
+                        <td><?=$this->getPrice(); ?></td>
+                    </tr>
+                </table>
+            </td>
+            <?php if ($this->getImageUrl()): ?>
+            <td>
+                <img class="product-image" src="<?=$this->getImageUrl();?>" />
+            </td>
+            <?php endif; ?>
+        </tr>
+    </table>
+
+
+</div>

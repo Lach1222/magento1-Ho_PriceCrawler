@@ -1,0 +1,33 @@
+<?php $spiders = $this->getSpidersWithJobInfo(); ?>
+<table cellspacing="0" style="border:0;" id="schedule_jobs_table">
+    <colgroup>
+        <col>
+        <col width="100">
+        <col width="100">
+    </colgroup>
+    <thead>
+    <tr class="headings">
+        <th class="no-link"><?=$this->__('Spider');?></th>
+        <th class="no-link"><?=$this->__('To be imported');?></th>
+        <th class="no-link" style="text-align: right;"><?=$this->__('Actions');?></th>
+    </tr>
+    </thead>
+    <?php if (count($spiders)): ?>
+        <?php foreach ($spiders as $spider): ?>
+            <?php $job = $spider->getJob() ? $spider->getJob() : false; ?>
+            <tr>
+                <td><?php echo $spider->getName(); ?></td>
+                <td><?=$job ? $job->items_scraped : '-'; ?></td>
+                <td style="text-align: right;">
+                    <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/import', array('spider' => $spider->getIdentifier())); ?>">
+                        <button><?=$this->__('Import now');?></button>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="2" style="color:#999;"><?=$this->__('No spiders found'); ?></td>
+        </tr>
+    <?php endif; ?>
+</table>

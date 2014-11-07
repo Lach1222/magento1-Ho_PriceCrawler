@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<layout>
+    <ho_pricecrawler_init>
+        <reference name="root">
+            <action method="addBodyClass"><classname>ho-pricecrawler</classname></action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>ho/pricecrawler.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>ho/pricecrawler.js</name><params/></action>
+        </reference>
+    </ho_pricecrawler_init>
+
+    <ho_pricecrawler_adminhtml_dashboard_index>
+        <update handle="ho_pricecrawler_init" />
+        <reference name="content">
+            <block type="ho_pricecrawler/adminhtml_dashboard" name="ho_pricecrawler_dashboard">
+                <block type="ho_pricecrawler/adminhtml_dashboard_schedule" template="ho/pricecrawler/schedule_jobs.phtml"
+                       name="ho_pricecrawler_dashboard_schedule_jobs" as="schedule_jobs"/>
+                <block type="ho_pricecrawler/adminhtml_dashboard_schedule" template="ho/pricecrawler/schedule_imports.phtml"
+                       name="ho_pricecrawler_dashboard_schedule_imports" as="schedule_imports"/>
+            </block>
+        </reference>
+    </ho_pricecrawler_adminhtml_dashboard_index>
+
+    <ho_pricecrawler_adminhtml_products_index>
+        <update handle="ho_pricecrawler_init" />
+        <reference name="content">
+            <block type="ho_pricecrawler/adminhtml_products" name="ho_pricecrawler_products" />
+        </reference>
+    </ho_pricecrawler_adminhtml_products_index>
+
+    <ho_pricecrawler_adminhtml_products_edit>
+        <update handle="ho_pricecrawler_init" />
+    </ho_pricecrawler_adminhtml_products_edit>
+
+    <ho_pricecrawler_adminhtml_sites_index>
+        <update handle="ho_pricecrawler_init" />
+        <reference name="content">
+            <block type="ho_pricecrawler/adminhtml_sites" name="ho_pricecrawler_sites" />
+        </reference>
+    </ho_pricecrawler_adminhtml_sites_index>
+
+    <ho_pricecrawler_adminhtml_logs_index>
+        <update handle="ho_pricecrawler_init" />
+        <reference name="content">
+            <block type="ho_pricecrawler/adminhtml_logs" name="ho_pricecrawler_logs" />
+        </reference>
+    </ho_pricecrawler_adminhtml_logs_index>
+</layout>

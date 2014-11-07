@@ -1,0 +1,70 @@
+<?php /** @var Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs $this */ ?>
+<?php $jobs = $this->getJobs(); ?>
+<?php $helper = Mage::helper('ho_pricecrawler'); ?>
+<table cellspacing="0" style="border:0;" id="jobs_table">
+    <colgroup>
+        <col width="90">
+        <col>
+        <col width="50">
+        <col width="50">
+        <col width="50">
+        <col width="130">
+        <col width="130">
+        <col width="110">
+        <col width="30">
+        <col width="30">
+    </colgroup>
+    <thead>
+    <tr class="headings">
+        <th class="no-link"><?=$this->__('ID');?></th>
+        <th class="no-link"><?=$this->__('Spider');?></th>
+        <th class="no-link"><?=$this->__('Items');?></th>
+        <th class="no-link"><?=$this->__('Requests');?></th>
+        <th class="no-link"><?=$this->__('Errors');?></th>
+        <th class="no-link"><?=$this->__('Started');?></th>
+        <th class="no-link"><?=$this->__('Updated');?></th>
+        <th class="no-link"><?=$this->__('Running time');?></th>
+        <th class="no-link"><?=$this->__('Logs');?></th>
+        <th class="no-link last"><?=$this->__('');?></th>
+    </tr>
+    </thead>
+    <?php if (count($jobs)): ?>
+        <?php foreach ($jobs as $job): ?>
+            <tr>
+                <td><?=$job->id;?></td>
+                <td><?=$job->spider;?></td>
+                <td><?=$job->items_scraped;?></td>
+                <td><?=$job->responses_received;?></td>
+                <td><?=$job->errors_count;?></td>
+                <td><?=$helper->parseJobTimestamp($job->started_time);?></td>
+                <td><?=$helper->parseJobTimestamp($job->updated_time);?></td>
+                <td align="right"><?=$helper->getElapsedJobTime($job);?></td>
+                <td>
+                    <?php if ($this->getName() == 'finished_jobs'): ?>
+                    <a href="<?=Mage::getURl('ho_pricecrawler/adminhtml_logs', array('job_id' => base64_encode($job->id)));?>"
+                       title="<?=$this->__('Show Logs');?>" class="job-icon job-logs">
+                        <?=$this->__('Show Logs');?>
+                    </a>
+                    <?php endif; ?>
+                </td>
+                <td class="last">
+                    <?php if ($this->getName() == 'running_jobs'): ?>
+                    <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/stopjob', array('id' => base64_encode($job->id)));?>"
+                       title="<?=$this->__('Stop job');?>" class="job-icon job-stop" onClick="return confirm('<?=$this->__('Are you sure you want to stop job %s?', $job->id); ?>')">
+                        <?=$this->__('Stop job');?></a>
+                    <?php elseif ($this->getName() == 'finished_jobs'): ?>
+                    <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/deletejob', array('id' => base64_encode($job->id)));?>"
+                       title="<?=$this->__('Delete job');?>" class="job-icon job-delete" onClick="return confirm('<?=$this->__('Are you sure you want to delete job %s?', $job->id); ?>')">
+                        <?=$this->__('Delete job');?></a>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="10" class="last" style="color:#999;">
+                <?=$this->__('No jobs found');?>
+            </td>
+        </tr>
+    <?php endif; ?>
+</table>

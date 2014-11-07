@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <ho_pricecrawler translate="title" module="ho_pricecrawler">
+            <title>PriceCrawler</title>
+            <sort_order>50</sort_order>
+            <depends><module>Ho_PriceCrawler</module></depends>
+            <children>
+                <ho_pricecrawler_dashboard translate="title" module="ho_pricecrawler">
+                    <title>Dashboard</title>
+                    <action>ho_pricecrawler/adminhtml_dashboard</action>
+                </ho_pricecrawler_dashboard>
+                <ho_pricecrawler_products translate="title" module="ho_pricecrawler">
+                    <title>Products</title>
+                    <action>ho_pricecrawler/adminhtml_products</action>
+                </ho_pricecrawler_products>
+                <ho_pricecrawler_sites translate="title" module="ho_pricecrawler">
+                    <title>Sites</title>
+                    <action>ho_pricecrawler/adminhtml_sites</action>
+                </ho_pricecrawler_sites>
+                <ho_pricecrawler_logs translate="title" module="ho_pricecrawler">
+                    <title>Logs</title>
+                    <action>ho_pricecrawler/adminhtml_logs</action>
+                </ho_pricecrawler_logs>
+                <ho_pricecrawler_config translate="title" module="ho_pricecrawler">
+                    <title>Configuration</title>
+                    <action>adminhtml/system_config/edit/section/ho_pricecrawler</action>
+                </ho_pricecrawler_config>
+            </children>
+        </ho_pricecrawler>
+    </menu>
+
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <ho_pricecrawler translate="title" module="ho_pricecrawler">
+                        <title>PriceCrawler</title>
+                        <children>
+                            <ho_pricecrawler_dashboard>
+                                <title>Dashboard</title>
+                            </ho_pricecrawler_dashboard>
+                            <ho_pricecrawler_products>
+                                <title>Products</title>
+                            </ho_pricecrawler_products>
+                            <ho_pricecrawler_sites>
+                                <title>Sites</title>
+                            </ho_pricecrawler_sites>
+                            <ho_pricecrawler_logs>
+                                <title>Logs</title>
+                            </ho_pricecrawler_logs>
+                        </children>
+                    </ho_pricecrawler>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ho_pricecrawler translate="title">
+                                        <title>PriceCrawler Configuration</title>
+                                    </ho_pricecrawler>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
