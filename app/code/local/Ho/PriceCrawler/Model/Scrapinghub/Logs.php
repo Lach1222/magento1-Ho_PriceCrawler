@@ -30,6 +30,20 @@ class Ho_PriceCrawler_Model_Scrapinghub_Logs extends Ho_PriceCrawler_Model_Scrap
     }
 
     /**
+     * Import logs of given job
+     *
+     * @param string $jobId
+     * @param string $spider
+     * @return string
+     */
+    public function importJob($jobId, $spider)
+    {
+        $result = $this->_importLog($jobId, $spider);
+
+        return $result;
+    }
+
+    /**
      * Import log for given jobId with spiderName
      *
      * @param string $jobId
@@ -45,7 +59,7 @@ class Ho_PriceCrawler_Model_Scrapinghub_Logs extends Ho_PriceCrawler_Model_Scrap
 
         if ($logModel->getId()) {
             // Skip if log is already imported
-            return Mage::helper('ho_pricecrawler')->__('Skip job %s: Log already imported', $jobId);
+            return Mage::helper('ho_pricecrawler')->__('%s not imported: Log already imported', $jobId);
         }
 
         $log = $this->_getLog($jobId);
@@ -58,7 +72,7 @@ class Ho_PriceCrawler_Model_Scrapinghub_Logs extends Ho_PriceCrawler_Model_Scrap
 
         if (!$siteId) {
             // Skip if spider is not yet configured in Magento
-            return Mage::helper('ho_pricecrawler')->__('Skip job %s: Not configured in Magento', $jobId);
+            return Mage::helper('ho_pricecrawler')->__('%s not imported: Not configured in Magento', $jobId);
         }
 
         $importDate = date('Y-m-d H:i:s');

@@ -1,7 +1,9 @@
+<?php /** @var Ho_PriceCrawler_Block_Adminhtml_Dashboard_Schedule $this */ ?>
 <?php $spiders = $this->getSpidersWithJobInfo(); ?>
 <table cellspacing="0" style="border:0;" id="schedule_jobs_table">
     <colgroup>
         <col>
+        <col width="100">
         <col width="100">
         <col width="100">
     </colgroup>
@@ -9,19 +11,31 @@
     <tr class="headings">
         <th class="no-link"><?=$this->__('Spider');?></th>
         <th class="no-link"><?=$this->__('To be imported');?></th>
-        <th class="no-link" style="text-align: right;"><?=$this->__('Actions');?></th>
+        <th class="no-link" colspan="2" style="text-align: right;"><?=$this->__('Actions');?></th>
     </tr>
     </thead>
     <?php if (count($spiders)): ?>
+        <?php /** @var Ho_PriceCrawler_Model_Sites $spider */ ?>
         <?php foreach ($spiders as $spider): ?>
             <?php $job = $spider->getJob() ? $spider->getJob() : false; ?>
             <tr>
                 <td><?php echo $spider->getName(); ?></td>
                 <td><?=$job ? $job->items_scraped : '-'; ?></td>
                 <td style="text-align: right;">
+                    <?php if ($job->items_scraped): ?>
                     <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/import', array('spider' => $spider->getIdentifier())); ?>">
-                        <button><?=$this->__('Import now');?></button>
+                        <button><?=$this->__('Import items now');?></button>
                     </a>
+                    <?php endif; ?>
+                </td>
+                <td style="text-align: right;">
+                    <?php if ($job->items_scraped): ?>
+                        <?php $hasLogs = $this->hasLogs($job->id); ?>
+                        <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/importlogs',
+                            array('spider' => $spider->getIdentifier(), 'job' => base64_encode($job->id))); ?>" class="<?=$hasLogs ? 'disabled tooltip' : '';?>" <?=$hasLogs ? 'disabled="disabled"' : '';?>>
+                            <button <?=$hasLogs ? 'disabled="disabled"' : '';?> class="<?=$hasLogs ? 'disabled' : '';?>"><?=$this->__($hasLogs ? 'Logs already imported' : 'Import logs now');?></button>
+                        </a>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>

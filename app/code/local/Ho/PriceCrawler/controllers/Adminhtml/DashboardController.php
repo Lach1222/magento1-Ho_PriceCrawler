@@ -100,6 +100,30 @@ class Ho_PriceCrawler_Adminhtml_DashboardController extends Mage_Adminhtml_Contr
         $this->_redirect('*/*');
     }
 
+    public function importlogsAction()
+    {
+        $spider = $this->getRequest()->getParam('spider');
+        $job = base64_decode($this->getRequest()->getParam('job'));
+
+        $result = $this->_getLogsModel()->importJob($job, $spider);
+
+        if ($result) {
+            $gridUrl = Mage::helper('ho_pricecrawler')->getLogsGridUrl($job);
+
+            Mage::getModel('adminhtml/session')->addSuccess($result);
+            Mage::getModel('adminhtml/session')->addSuccess(
+                $this->__('Check the <a href=%s>logs</a>.', $gridUrl)
+            );
+        }
+        else {
+            Mage::getModel('adminhtml/session')->addError(
+                $this->__('Something went wrong while importing logs for %s (%s).', $spider, $job)
+            );
+        }
+
+        $this->_redirect('*/*');
+    }
+
     /**
      * @return Ho_PriceCrawler_Model_Scrapinghub_Jobs
      */
@@ -114,6 +138,14 @@ class Ho_PriceCrawler_Adminhtml_DashboardController extends Mage_Adminhtml_Contr
     protected function _getItemsModel()
     {
         return Mage::getModel('ho_pricecrawler/scrapinghub_items');
+    }
+
+    /**
+     * @return Ho_PriceCrawler_Model_Scrapinghub_Logs
+     */
+    protected function _getLogsModel()
+    {
+        return Mage::getModel('ho_pricecrawler/scrapinghub_logs');
     }
 
     /**

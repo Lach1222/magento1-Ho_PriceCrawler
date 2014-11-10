@@ -24,19 +24,9 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
      */
     public function getLogsGridUrl($jobId)
     {
-        $filters = array(
-            'job_id'    => $jobId,
-            'is_item'   => 0,
-        );
+        $helper = Mage::helper('ho_pricecrawler');
 
-        $filter = '';
-        $i = 0;
-        foreach ($filters as $key => $value) {
-            $filter .= ($i > 0 ? '&' : '') . $key . '=' . $value;
-            $i++;
-        }
-
-        $url = Mage::helper('adminhtml')->getUrl('ho_pricecrawler/adminhtml_logs', array('limit' => 200, 'filter' => base64_encode($filter)));
+        $url = $helper->getLogsGridUrl($jobId);
 
         return $url;
     }
@@ -65,28 +55,10 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Jobs extends Mage_Adminhtml_Bloc
         return in_array($jobId, $jobs);
     }
 
-    /**
-     * Retrieve all jobs IDs that have logs
-     *
-     * @return array
-     */
     protected function _getLoggedJobIds()
     {
         if (is_null($this->_loggedJobIds)) {
-            $resource = Mage::getModel('core/resource');
-            $connection = $resource->getConnection('core_read');
-
-            $sql = $connection->select()
-                ->from($resource->getTableName('ho_pricecrawler/logs'))
-                ->reset(Zend_Db_Select::COLUMNS)
-                ->distinct()
-                ->columns('job_id');
-
-            $result = $connection->fetchAll($sql);
-
-            foreach ($result as $job) {
-                $jobs[] = $job['job_id'];
-            }
+            $jobs = Mage::helper('ho_pricecrawler')->getLoggedJobIds();
 
             $this->_loggedJobIds = $jobs;
         }
