@@ -38,8 +38,7 @@
                                 <button><?=$this->__('Import logs now');?></button>
                             </a>
                         <?php else: ?>
-                            <a href="<?=$helper->getLogsGridUrl($job->id);?>"
-                               data-tooltip="<?=$this->__('Show logs of this job');?>" class="tooltip tooltip-nowrap">
+                            <a href="<?=$helper->getLogsGridUrl($job->id);?>">
                                 <?=$this->__('Show logs of this job');?>
                             </a>
                         <?php endif; ?>
