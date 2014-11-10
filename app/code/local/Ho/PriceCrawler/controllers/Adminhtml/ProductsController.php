@@ -77,6 +77,8 @@ class Ho_PriceCrawler_Adminhtml_ProductsController extends Mage_Adminhtml_Contro
             ->load($productId);
 
         $product->setPrice(Mage::helper('core')->currency($product->getPrice(), true, false));
+        $product->setDateProductUpdated(Mage::helper('ho_pricecrawler')->formatDate($product->getDateProductUpdated()));
+        $product->setDatePriceUpdated(Mage::helper('ho_pricecrawler')->formatDate($product->getDatePriceUpdated()));
 
         $this->getResponse()->setHeader('Content-type', 'application/json');
         $this->getResponse()->setBody(json_encode($product->getData()));

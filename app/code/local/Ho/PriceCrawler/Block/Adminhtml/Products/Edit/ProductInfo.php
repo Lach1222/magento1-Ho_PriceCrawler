@@ -3,6 +3,8 @@
 /**
  * Class Ho_PriceCrawler_Block_Adminhtml_Products_Edit_ProductInfo
  *
+ * @method bool getIsOriginalProduct()
+ * @method setIsOriginalProduct(bool $value)
  * @method string getId()
  * @method setId(string $value)
  * @method string getClass()
@@ -19,6 +21,10 @@
  * @method setImageUrl(string $value)
  * @method string getProductUrl()
  * @method setProductUrl(string $value)
+ * @method string getDateProductUpdated()
+ * @method setDateProductUpdated(string $value)
+ * @method string getDatePriceUpdated()
+ * @method setDatePriceUpdated(string $value)
  */
 class Ho_PriceCrawler_Block_Adminhtml_Products_Edit_ProductInfo extends Mage_Adminhtml_Block_Widget
 {

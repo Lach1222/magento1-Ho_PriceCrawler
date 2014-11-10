@@ -29,6 +29,16 @@
                         <td class="label"><?=$this->__('Product price:'); ?></td>
                         <td><?=$this->getPrice(); ?></td>
                     </tr>
+                    <?php if (!$this->getIsOriginalProduct()): ?>
+                    <tr class="small">
+                        <td class="label"><?=$this->__('Last update price:');?></td>
+                        <td><?=$this->getDatePriceUpdated();?></td>
+                    </tr>
+                    <tr class="small">
+                        <td class="label"><?=$this->__('Last update product:');?></td>
+                        <td><?=$this->getDateProductUpdated();?></td>
+                    </tr>
+                    <?php endif; ?>
                 </table>
             </td>
             <?php if ($this->getImageUrl()): ?>

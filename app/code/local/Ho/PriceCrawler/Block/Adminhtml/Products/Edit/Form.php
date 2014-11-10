@@ -75,6 +75,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Edit_Form extends Mage_Adminhtml_
         }
 
         $note = $this->getLayout()->createBlock('ho_pricecrawler/adminhtml_products_edit_productInfo')
+            ->setIsOriginalProduct(true)
             ->setHeader($this->__('Product information:'))
             ->setName($product->getName())
             ->setSku($product->getSku())
@@ -112,6 +113,8 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Edit_Form extends Mage_Adminhtml_
                 ->setName('<span class="product_name"></span>')
                 ->setSku('<span class="product_identifier"></span>')
                 ->setPrice('<span class="product_price"></span>')
+                ->setDateProductUpdated('<span class="product_date_product_updated"></span>')
+                ->setDatePriceUpdated('<span class="product_date_price_updated"></span>')
                 ->setImageUrl(true)
                 ->setProductUrl(true)
                 ->_toHtml();
@@ -143,6 +146,8 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Edit_Form extends Mage_Adminhtml_
                     ->setPrice(!is_null($matchedProduct->getPrice()) ? Mage::helper('core')->currency($matchedProduct->getPrice(), true, false) : false)
                     ->setImageUrl($matchedProduct->getImage())
                     ->setProductUrl($matchedProduct->getUrl())
+                    ->setDateProductUpdated(Mage::helper('ho_pricecrawler')->formatDate($matchedProduct->getDateProductUpdated()))
+                    ->setDatePriceUpdated(Mage::helper('ho_pricecrawler')->formatDate(($matchedProduct->getDatePriceUpdated())))
                     ->_toHtml() .
                     '<div class="match-note last-note">' . $this->__('Note: Name and price can be empty, when a product identifier is manually entered and the product is not crawled yet.') . '</div>';
             }

@@ -58,6 +58,8 @@
 "Product information:","Product informatie:"
 "Product price:","Prijs:"
 "Product SKU:","SKU:"
+"Last update price:","Laatste update prijs:"
+"Last update product:","Laatste update product:"
 "Note: Name and price can be empty, when a product identifier is manually entered and the product is not crawled yet.","Opmerking: Naam en prijs kunnen leeg zijn, wanneer een product handmatig gekoppeld is en het product nog niet gecrawld is."
 "There is no match saved for this product yet.","Er is nog geen gekoppeld product opgeslagen."
 "Manually search for matches","Handmatig zoeken naar producten"

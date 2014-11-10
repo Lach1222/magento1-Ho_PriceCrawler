@@ -100,6 +100,8 @@ selectedProductInfo = function(url, siteId) {
                 infoEl.down('.product_identifier').update(response['product_identifier']);
                 infoEl.down('.product_name').update(response['name']);
                 infoEl.down('.product_price').update(response['price']);
+                infoEl.down('.product_date_product_updated').update(response['date_product_updated']);
+                infoEl.down('.product_date_price_updated').update(response['date_price_updated']);
                 infoEl.down('.product-image').setAttribute('src', response['image']);
                 infoEl.down('.product-url').setAttribute('href', response['url']);
 

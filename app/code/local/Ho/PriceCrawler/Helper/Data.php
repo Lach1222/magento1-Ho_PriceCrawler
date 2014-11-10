@@ -97,4 +97,13 @@ class Ho_PriceCrawler_Helper_Data extends Mage_Core_Helper_Abstract
         return $this->_loggedJobIds;
     }
 
+    /**
+     * @param string $datetime
+     * @return string
+     */
+    public function formatDate($datetime)
+    {
+        return Mage::helper('core')->formatDate($datetime, Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, true);
+    }
+
 }
