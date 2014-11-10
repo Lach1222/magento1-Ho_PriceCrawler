@@ -111,6 +111,7 @@ class Ho_PriceCrawler_Model_Scrapinghub_Items extends Ho_PriceCrawler_Model_Scra
                             $updateValues[self::PRICE_UPDATED_COLUMN] = $updateDate;
                         }
 
+                        $where = array();
                         $where['site_id = ?'] = $item['site_id'];
                         $where[$matchColumn . ' = ?'] = $item[$matchColumn];
 
