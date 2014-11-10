@@ -32,7 +32,7 @@
                 </td>
                 <td style="text-align: right;">
                     <?php if ($job->items_scraped): ?>
-                        <?php if ($this->hasLogs($job->id)): ?>
+                        <?php if (!$this->hasLogs($job->id)): ?>
                             <a href="<?=Mage::getUrl('ho_pricecrawler/adminhtml_dashboard/importlogs',
                                 array('spider' => $spider->getIdentifier(), 'job' => base64_encode($job->id))); ?>">
                                 <button><?=$this->__('Import logs now');?></button>
