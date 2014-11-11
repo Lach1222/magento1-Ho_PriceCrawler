@@ -78,64 +78,57 @@ class Ho_PriceCrawler_Model_Scrapinghub_Logs extends Ho_PriceCrawler_Model_Scrap
         $importDate = date('Y-m-d H:i:s');
 
         $resource = Mage::getSingleton('core/resource');
+        /** @var Magento_Db_Adapter_Pdo_Mysql $connection */
         $connection = $resource->getConnection('core_write');
 
         $imported = $errors = 0;
-        $lastItem = $logItem = array();
-        $lastLine = $lastUrl = false;
+
+        $lastPageUrlsThreshold = 50;
+        $lastPageUrls = array();
 
         // Import log lines
         foreach ($log as $line) {
             $logDate = date('Y-m-d H:i:s', $line->time / 1000);
 
-            $item = $url = $isItem = false;
+            $url = false;
             // Check if log line is a crawled page
             if ($this->_isPage($line) || $this->_isItem($line)) {
                 preg_match_all('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', $line->message, $match);
                 $url = $match[0][0];
             }
 
-            $item = array(
-                'site_id'       => $siteId,
-                'job_id'        => $jobId,
-                'imported_at'   => $importDate,
-                'date'          => $logDate,
-                'level'         => $line->level,
-                'message'       => $line->message,
-                'url'           => $url,
-                'is_item'        => false,
-            );
-
-            if ($this->_isItem($lastLine)) {
-                // Last line was item, log it
-                $lastItem['is_item'] = true;
-                $logItem = $lastItem;
-            }
-            elseif ($this->_isPage($lastLine)) {
-                // Last line was page request
-                if ($this->_isItem($line)) {
-                    // Don't log last line, because this one is item (else it will be double in the logs)
-                    $logItem = array();
-                }
-                else {
-                    // Log it
-                    $logItem = $lastItem;
-                }
-            }
-            else {
-                // Last line was not item or request
-                $logItem = array();
-            }
-
-            $lastLine = $line;
-            $lastItem = $item;
-
-            // Check if we need to save log line
-            if (empty($logItem)) continue;
-
             try {
-                $connection->insert($resource->getTableName('ho_pricecrawler/logs'), $logItem);
-                $imported++;
+                if ($this->_isPage($line)) {
+                    // Log log line as page (no item)
+                    $item = array(
+                        'site_id' => $siteId,
+                        'job_id' => $jobId,
+                        'imported_at' => $importDate,
+                        'date' => $logDate,
+                        'level' => $line->level,
+                        'message' => $line->message,
+                        'url' => $url,
+                        'is_item' => false,
+                    );
+
+                    $connection->insert($resource->getTableName('ho_pricecrawler/logs'), $item);
+                    $lastInsertId = $connection->lastInsertId();
+
+                    // Remember last log lines to check for items
+                    if (count($lastPageUrls) > $lastPageUrlsThreshold) {
+                        $lastPageUrls = array_slice($lastPageUrls, 1, null, true);
+                    }
+                    $lastPageUrls[$lastInsertId] = $url;
+
+                    $imported++;
+                }
+                elseif ($this->_isItem($line)) {
+                    if (in_array($url, $lastPageUrls)) {
+                        // Changed already saved log item, set is_item to true
+                        $logLineId = array_search($url, $lastPageUrls);
+                        $connection->update($resource->getTableName('ho_pricecrawler/logs'), array('is_item' => 1), array('entity_id = ?' => $logLineId));
+                    }
+                }
             }
             catch (Exception $e) {
                 Mage::logException($e);
