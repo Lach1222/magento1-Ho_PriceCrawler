@@ -157,7 +157,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Grid extends Mage_Adminhtml_Block
         ));
 
         $this->addColumn('lowest_price_updated', array(
-            'header'    => Mage::helper('ho_pricecrawler')->__('Lowest price last updated'),
+            'header'    => Mage::helper('ho_pricecrawler')->__('Lowest price<br/>last updated'),
             'width'     => '140px',
             'index'     => 'lowest_price_updated',
             'type'      => 'datetime',

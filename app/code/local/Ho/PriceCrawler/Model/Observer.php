@@ -92,7 +92,7 @@ class Ho_PriceCrawler_Model_Observer
 
         $messages = array();
         $messages[] = "With these logs, you can easily check which requests had no item scraped. Select a Job ID and set 'Has Item' to 'No', to show all the requests without items.";
-        $messages[] = "Copy the URL of the request and look it up in the 'Requests' tab of the job in Scrapinghub to add a template, or add (a part of) the URL to the Exclude Patterns.";
+        $messages[] = "To directly view the request in the selected job, click the 'Open Request' link. This will open the 'Requests' tab of the job in Scrapinghub so you can add a missing template, or add (a part of) the URL to the Exclude Patterns.";
 
         foreach ($messages as $message) {
             Mage::getSingleton('core/session')->addNotice(Mage::helper('ho_pricecrawler')->__($message));
