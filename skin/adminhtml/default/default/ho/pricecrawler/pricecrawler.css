@@ -1,6 +1,7 @@
 .match-head { color: #de5400; font-weight: bold; }
 .match-note { color: #f19900; font-size: 11px; }
 .last-note { padding: 5px 0;  border-bottom: 1px solid #d6d6d6; }
+.ho-pricecrawler .no-wrap { white-space: nowrap; }
 
 .product-info .info { width: 500px; }
 .product-match-form label { margin-top: 3px; display: inline-block; width: 200px; }
@@ -33,6 +34,5 @@
 .ho-pricecrawler .external-url:hover { color: #e41101; }
 .ho-pricecrawler td { position: relative; }
 .ho-pricecrawler .tooltip-data { position: absolute; top: 20px; right: 0; padding: 2px 6px; background: #fff; border: 1px solid #ea7601; z-index: 999; }
-.ho-pricecrawler .tooltip-data.no-wrap { white-space: nowrap; }
 
 .ho-pricecrawler-adminhtml-logs-index .messages li { margin-bottom: 4px !important; line-height: 13px !important; min-height: 0 !important; }

@@ -38,7 +38,7 @@
                                 <button><?=$this->__('Import logs now');?></button>
                             </a>
                         <?php else: ?>
-                            <a href="<?=$helper->getLogsGridUrl($job->id);?>">
+                            <a href="<?=$helper->getLogsGridUrl($job->id);?>" class="no-wrap">
                                 <?=$this->__('Show logs of this job');?>
                             </a>
                         <?php endif; ?>

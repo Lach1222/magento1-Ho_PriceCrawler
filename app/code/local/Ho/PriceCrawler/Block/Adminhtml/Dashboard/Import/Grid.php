@@ -36,6 +36,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Import_Grid extends Mage_Adminht
         $this->addColumn('log_id', array(
             'header'    => $this->__('Log ID'),
             'index'     => 'log_id',
+            'width'     => '60px',
         ));
 
         $this->addColumn('site_name', array(
@@ -47,27 +48,32 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard_Import_Grid extends Mage_Adminht
             'header'    => $this->__('Start time'),
             'index'     => 'start_date',
             'type'      => 'datetime',
+            'width'     => '160px',
         ));
         $this->addColumn('end_date', array(
             'header'    => $this->__('End time'),
             'index'     => 'end_date',
             'type'      => 'datetime',
+            'width'     => '160px',
         ));
         $this->addColumn('elapsed', array(
             'header'    => $this->__('Running time'),
             'align'     => 'right',
             'renderer'  => 'Ho_PriceCrawler_Block_Adminhtml_Dashboard_Renderer_Elapsed',
+            'width'     => '50px',
         ));
 
         $this->addColumn('imported', array(
             'header'    => $this->__('Imported'),
             'align'     => 'right',
-            'index'     => 'imported'
+            'index'     => 'imported',
+            'width'     => '50px',
         ));
         $this->addColumn('errors', array(
             'header'    => $this->__('Errors'),
             'align'     => 'right',
-            'index'     => 'errors'
+            'index'     => 'errors',
+            'width'     => '50px',
         ));
 
         $this->addColumn('memory_usage', array(
