@@ -30,7 +30,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Edit extends Mage_Adminhtml_Block
                 'label' => Mage::helper('ho_pricecrawler')->__('Next without save'),
                 'class' => 'back go',
                 'onclick' => "window.location.href = '" .
-                    Mage::getUrl('ho_pricecrawler/adminhtml_products/edit', array('id' =>
+                    Mage::getUrl('*/hopricecrawler_products/edit', array('id' =>
                         Mage::helper('ho_pricecrawler/product')->getNextProductId(Mage::registry('ho_pricecrawler')->getId())
                     )) . "'",
             ), 2

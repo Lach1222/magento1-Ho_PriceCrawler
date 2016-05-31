@@ -8,19 +8,19 @@
             <children>
                 <ho_pricecrawler_dashboard translate="title" module="ho_pricecrawler">
                     <title>Dashboard</title>
-                    <action>ho_pricecrawler/adminhtml_dashboard</action>
+                    <action>adminhtml/hopricecrawler_dashboard/index</action>
                 </ho_pricecrawler_dashboard>
                 <ho_pricecrawler_products translate="title" module="ho_pricecrawler">
                     <title>Products</title>
-                    <action>ho_pricecrawler/adminhtml_products</action>
+                    <action>adminhtml/hopricecrawler_products/index</action>
                 </ho_pricecrawler_products>
                 <ho_pricecrawler_sites translate="title" module="ho_pricecrawler">
                     <title>Sites</title>
-                    <action>ho_pricecrawler/adminhtml_sites</action>
+                    <action>adminhtml/hopricecrawler_sites/index</action>
                 </ho_pricecrawler_sites>
                 <ho_pricecrawler_logs translate="title" module="ho_pricecrawler">
                     <title>Logs</title>
-                    <action>ho_pricecrawler/adminhtml_logs</action>
+                    <action>adminhtml/hopricecrawler_logs/index</action>
                 </ho_pricecrawler_logs>
                 <ho_pricecrawler_config translate="title" module="ho_pricecrawler">
                     <title>Configuration</title>

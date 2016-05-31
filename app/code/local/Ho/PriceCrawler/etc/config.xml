@@ -60,13 +60,13 @@
 
     <admin>
         <routers>
-            <ho_pricecrawler>
-                <use>admin</use>
-                <args>
-                    <module>Ho_PriceCrawler</module>
-                    <frontName>ho_pricecrawler</frontName>
-                </args>
-            </ho_pricecrawler>
+            <adminhtml>
+				<args>
+					<modules>
+						<ho_pricecrawler before="Mage_Adminhtml">Ho_PriceCrawler_Adminhtml</ho_pricecrawler>
+					</modules>
+				</args>
+			</adminhtml>
         </routers>
     </admin>
 

@@ -28,7 +28,7 @@
         <th class="no-link last"><?=$this->__('');?></th>
     </tr>
     </thead>
-    <?php if (count($jobs)): ?>
+    <?php if ($jobs): ?>
         <?php foreach ($jobs as $job): ?>
             <tr>
                 <td><a href="<?=$this->getJobUrl($job->id);?>" class="job-url external-url" target="_blank" title="<?=$this->__('Open job in Scrapinghub');?>"><?=$job->id;?></a></td>

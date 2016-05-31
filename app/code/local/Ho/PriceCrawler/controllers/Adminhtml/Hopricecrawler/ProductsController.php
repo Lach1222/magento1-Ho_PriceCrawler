@@ -1,6 +1,6 @@
 <?php
 
-class Ho_PriceCrawler_Adminhtml_ProductsController extends Mage_Adminhtml_Controller_Action
+class Ho_PriceCrawler_Adminhtml_Hopricecrawler_ProductsController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()
     {

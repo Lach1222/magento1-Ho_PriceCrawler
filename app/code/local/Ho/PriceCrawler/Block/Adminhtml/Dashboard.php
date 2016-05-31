@@ -45,7 +45,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Dashboard extends Mage_Adminhtml_Block_Wid
                 'state' => $state,
             ));
 
-        if ($limit) {
+        if ($jobs && $limit) {
             $jobs = array_slice($jobs, 0, $limit);
         }
 

@@ -33,7 +33,15 @@ class Ho_PriceCrawler_Model_Scrapinghub_Jobs extends Ho_PriceCrawler_Model_Scrap
     {
         $result = $this->get('jobs/list', $params);
 
-        return json_decode($result)->jobs;
+        $result = json_decode($result);
+
+        if ($result->status === strtolower('error')) {
+            Mage::getSingleton('adminhtml/session')->addError('Error: ' . $result->message);
+
+            return false;
+        }
+
+        return $result->jobs;
     }
 
     /**

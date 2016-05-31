@@ -247,7 +247,7 @@ class Ho_PriceCrawler_Block_Adminhtml_Products_Grid extends Mage_Adminhtml_Block
                 array(
                     'caption'   => Mage::helper('ho_pricecrawler')->__('Match product'),
                     'url'       => array(
-                        'base'  => 'ho_pricecrawler/adminhtml_products/edit',
+                        'base'  => '*/hopricecrawler_products/edit',
                     ),
                     'field'     => 'id',
                 )
