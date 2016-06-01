@@ -35,7 +35,7 @@ class Ho_PriceCrawler_Model_Scrapinghub_Jobs extends Ho_PriceCrawler_Model_Scrap
 
         $result = json_decode($result);
 
-        if ($result->status === strtolower('error')) {
+        if (strtolower($result->status) === 'error') {
             Mage::getSingleton('adminhtml/session')->addError('Error: ' . $result->message);
 
             return false;
